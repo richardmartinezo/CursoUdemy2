@@ -1,6 +1,4 @@
-﻿using Microsoft.AspNetCore.Http;
-using Microsoft.AspNetCore.Mvc;
-using System.Globalization;
+﻿using Microsoft.AspNetCore.Mvc;
 
 namespace CursoUdemy2.Controllers
 {
@@ -9,21 +7,21 @@ namespace CursoUdemy2.Controllers
     public class OperationController : ControllerBase
     {
         [HttpGet]
-        public decimal Get(decimal a, decimal b) 
+        public decimal Get(decimal a, decimal b)
         {
-           
             return a + b;
         }
 
         [HttpPost]
         public decimal Add(Numbers number, [FromHeader] string Host,
-            [FromHeader(Name ="Content-Length")] string ContentLength)
+            [FromHeader(Name = "Content-Length")] string ContentLength)
         {
             Console.WriteLine(Host);
             Console.WriteLine(ContentLength);
             return number.A + number.B;
         }
     }
+
     public class Numbers
     {
         public decimal A { get; set; }
