@@ -9,9 +9,9 @@ namespace CursoUdemy2.Controllers
     public class PeopleController : ControllerBase
     {
         private IPeopleService _peopleService;
-        public PeopleController()
+        public PeopleController(IPeopleService peopleService)
         {
-            _peopleService = new PeopleService();
+            _peopleService = peopleService;
         }
         [HttpGet("all")]
         public ActionResult<List<People>> GetPeople() => Repository.peopleDictionary.Values.ToList();
